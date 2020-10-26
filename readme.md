@@ -22,8 +22,31 @@ We'll be using an existing application that uses the [PokeAPI](http://pokeapi.co
 
 - After setup, **STOP**. You're using an existing application, so make sure to read the code and ensure what the application does. Answer these questions you may want to ask yourself:
   - How does the app retrieve a list of Pokemon?
+  its getting the info from an API .. pokemon url
   - How many Pokemon does the API call retrieve? Why that many?
+      There are 151 pokemons, we used slice to only get 151 of them.
   - What are the routes defined in the application?
+        // GET /pokemon - return a page with favorited Pokemon
+router.get('/', function(req, res) {
+  // TODO: Get all records from the DB and render to view
+  res.send('Render a page of favorites here');
+});
+
+// POST /pokemon - receive the name of a pokemon and add it to the database
+router.post('/', function(req, res) {
+  // TODO: Get form data and add a new record to DB
+  res.send(req.body);
+});
+
+app.get('/', function(req, res) {
+  const pokemonUrl = 'http://pokeapi.co/api/v2/pokemon/';
+  // Use request to call the API
+  axios.get(pokemonUrl).then( function(apiResponse) {
+    const pokemon = apiResponse.data.results;
+    res.render('index', { pokemon: pokemon.slice(0, 151) });
+  })
+});
+
   - Think about adding a Pokemon to your favorites.
     - How will this data be submitted?
     - What will you have to do to save this data to a database?
