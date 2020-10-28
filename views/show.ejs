@@ -1,25 +1,31 @@
-<h1 class= "infoDinoIndex">Info about your chosen pokemon:  <%= pokemonIndex.name  %> </h1>
+<h1 class= "infoDinoIndex">Info About Your Chosen Pokemon:  <%= pokemonIndex.name  %> </h1>
+
+<div id="container"> 
 
 <br>
 <h2><img src="<%=pokemonIndex.sprites.other.dream_world.front_default%>" width="300"></h2>
 <br>
 
-<div>
+
+
+<div class="details">
     <% pokemonIndex.types.forEach(types=>{ %>
         <p> <b> Type:</b> <%=types.type.name%></p>
     <% }) %>
 </div>
 
 
-<div>
+<div class="details">
     <% pokemonIndex.abilities.forEach(obj=>{ %>
          <p> <b>Ability </b><%=obj.ability.name%></p>
     <% }) %>
        
 </div>
 
-<div>
+<div class="details">
     <% pokemonIndex.stats.forEach(stats=>{ %>
         <p> <b> Moves</b> <%=stats.stat.name%></p>
     <% }) %>
     </div>        
+
+</div>    

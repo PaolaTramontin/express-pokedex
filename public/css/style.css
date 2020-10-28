@@ -47,4 +47,37 @@ body {  /* INFO ABOUT THE BODY & BACKGROUND IMG */
 .infoDinoIndex {
     font-size:40px;
     color:white;
+    font-family:Chalkduster, fantasy;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+
+#container {
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+}
+
+.details{
+    font-size:20px;
+    color:white;
+    background-color: rgba(17, 3, 18, 0.7);
+}
+
+#delete{
+    color:black;
+}
+
+#delete:hover{
+    background-color: #051970; 
+    color:white;
+    transform: skew(-10deg);
+}
+
+#button{
+    height:30px;
+    width:170px;
+    font-size:15px;
+    margin-left:80px;
 }

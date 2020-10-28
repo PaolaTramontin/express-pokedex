@@ -9,7 +9,8 @@ const axios = require('axios');
 router.get('/', (req, res)=> {
   db.pokemon.findAll()
   .then(pokemon=>{
-    res.render('index', {pokemon: pokemon, showButton: false})
+  // res.send(pokemon)
+   res.render('index', {pokemon: pokemon, showButton: false, showHeader: false})
   })
 });
 //get always renders 
@@ -35,13 +36,29 @@ router.get('/:idx', (req, res)=>{
   axios.get(`http://pokeapi.co/api/v2/pokemon/${pokemonIndex}`)
   .then(response=>{
   // res.send(response.data)
-    res.render('show', {pokemonIndex: response.data })  
+    res.render('show', {pokemonIndex: response.data })  //how do we send info to the ejs file? AS AN OBJECT
     //console.log(response.data)
   }) 
   .catch(err =>{
     console.log(err)
 })
 })
+
+
+
+router.delete('/:idx', (req, res)=>{
+  db.pokemon.destroy({
+    where: {id: req.params.idx}
+  })
+  //.then(([createdFave, wasCreated ]) =>{
+    .then(numRowsDeleted=>{
+       console.log(numRowsDeleted)
+      res.redirect('/pokemon')  //always needs to be a url
+  }).catch(err=>{
+    res.send(err)
+  })
+})
+
 
 
 module.exports = router;
