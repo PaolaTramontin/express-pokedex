@@ -46,6 +46,8 @@ router.get('/:idx', (req, res)=>{
 
 
 
+//DELETE ROUTE 
+
 router.delete('/:idx', (req, res)=>{
   db.pokemon.destroy({
     where: {id: req.params.idx}
@@ -62,5 +64,4 @@ router.delete('/:idx', (req, res)=>{
 
 
 module.exports = router;
-
 

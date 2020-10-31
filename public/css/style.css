@@ -48,7 +48,7 @@ body {  /* INFO ABOUT THE BODY & BACKGROUND IMG */
     font-size:40px;
     color:white;
     font-family:Chalkduster, fantasy;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.2);
 }
 
 
@@ -62,7 +62,7 @@ body {  /* INFO ABOUT THE BODY & BACKGROUND IMG */
 .details{
     font-size:20px;
     color:white;
-    background-color: rgba(17, 3, 18, 0.7);
+    background-color: rgba(17, 3, 18, 0.2);
 }
 
 #delete{
